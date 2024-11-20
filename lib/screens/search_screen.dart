@@ -80,10 +80,9 @@ class _SearchScreenState extends State<SearchScreen> {
 class AnimeSearchDelegate extends SearchDelegate<List<AnimeNode>> {
   Iterable<Anime> animes = [];
 
-  Future searchAnime(String query) async {
+  Future<Iterable<Anime>> searchAnime(String query) async {
     final animes = await getAnimesbySearchApi(query: query);
-
-    this.animes = animes.toList();
+    return animes.toList();
   }
 
   @override
@@ -115,7 +114,6 @@ class AnimeSearchDelegate extends SearchDelegate<List<AnimeNode>> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    searchAnime(query);
     return _buildSearchResults(context);
   }
 
@@ -126,7 +124,7 @@ class AnimeSearchDelegate extends SearchDelegate<List<AnimeNode>> {
       );
     } else {
       return FutureBuilder<Iterable<Anime>>(
-        future: getAnimesbySearchApi(query: query),
+        future: searchAnime(query),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(

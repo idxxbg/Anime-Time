@@ -1,3 +1,4 @@
+import 'package:anime_world_tutorial/screens/anime_details_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -17,14 +18,18 @@ class AnimeListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print(anime.node.title);
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => AnimeDetailsScreen(id: anime.node.id),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(
           bottom: 16.0,
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
+        child: Card(
+          // borderRadius: BorderRadius.circular(15),
           child: SizedBox(
             height: 100,
             child: Row(

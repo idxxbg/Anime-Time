@@ -79,7 +79,7 @@ class AnimeDetailsScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 20),
 
-                            // Similar Animes
+                            // Related Animes
                             SimilarAnimesView(
                               animes: anime.relatedAnime
                                   .map((animeReLated) => animeReLated.node)

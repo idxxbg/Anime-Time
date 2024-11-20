@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 @immutable
 class TextStyles {
   // Small text
-  static final smallText = TextStyle(
+  static const smallText = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w400,
-    color: Colors.white.withOpacity(.9),
   );
 
   // Medium Text
@@ -25,6 +24,4 @@ class TextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );
-
-  const TextStyles._();
 }

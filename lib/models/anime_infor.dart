@@ -21,8 +21,8 @@ class AnimeInfor {
 
 @immutable
 class Ranking {
-  final int rank;
   const Ranking({required this.rank});
+  final int rank;
   factory Ranking.fromJson(Map<String, dynamic> json) {
     return Ranking(rank: json['rank']);
   }

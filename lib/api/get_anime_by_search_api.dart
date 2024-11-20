@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:anime_world_tutorial/models/anime_infor.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '/config/app_config.dart';
 import '/models/anime.dart';
+import '/models/anime_infor.dart';
 
 Future<Iterable<Anime>> getAnimesbySearchApi({
   required String query,
@@ -14,9 +14,7 @@ Future<Iterable<Anime>> getAnimesbySearchApi({
 
   final response = await http.get(
     Uri.parse(baseUrl),
-    headers: {
-      'X-MAL-CLIENT-ID': clientId,
-    },
+    headers: {'X-MAL-CLIENT-ID': clientId},
   );
 
   if (response.statusCode == 200) {

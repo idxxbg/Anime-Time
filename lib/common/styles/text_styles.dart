@@ -24,4 +24,6 @@ class TextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );
+  // đảm bảo chi duoc dùng private như 1 lớp tiện ích
+  const TextStyles._();
 }

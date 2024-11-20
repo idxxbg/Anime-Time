@@ -29,6 +29,7 @@ class AnimeListTile extends StatelessWidget {
           bottom: 16.0,
         ),
         child: Card(
+          elevation: 3,
           // borderRadius: BorderRadius.circular(15),
           child: SizedBox(
             height: 100,
@@ -39,9 +40,15 @@ class AnimeListTile extends StatelessWidget {
                 SizedBox(
                   height: 100,
                   width: 150,
-                  child: CachedNetworkImage(
-                    imageUrl: anime.node.mainPicture.medium,
-                    fit: BoxFit.cover,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: anime.node.mainPicture.medium,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
 
